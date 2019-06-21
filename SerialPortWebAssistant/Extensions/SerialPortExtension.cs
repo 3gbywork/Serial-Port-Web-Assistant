@@ -3,7 +3,7 @@ using System.IO.Ports;
 
 namespace SerialPortWebAssistant.Extensions
 {
-    static public class SerialPortExtension
+    public static class SerialPortExtension
     {
         public static bool TryOpen(this SerialPort serialPort)
         {
