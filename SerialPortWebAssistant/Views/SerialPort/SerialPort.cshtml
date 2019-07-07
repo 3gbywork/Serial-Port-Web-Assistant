@@ -1,8 +1,115 @@
-﻿@model SerialPortWebAssistant.Models.SerialPortModel
+﻿@using SerialPortWebAssistant.Extensions;
+@model SerialPortWebAssistant.Models.SerialPortModel
 
-@{
-    ViewBag.Title = "SerialPort";
+<br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal row">
+        @*<h4>SerialPortModel</h4>
+            <hr />*@
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.SelectSerialPort, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @*@Html.EditorFor(model => model.SelectSerialPort, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.DropDownListFor(model => model.SelectSerialPort, Model.SerialPortList, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SelectSerialPort, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SelectBaudRate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.SelectBaudRate, Model.BaudRateList, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SelectBaudRate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SelectDataBits, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.SelectDataBits, Model.DataBitsList, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SelectDataBits, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SelectParity, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.SelectParity, Model.ParityList, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SelectParity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SelectStopBits, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.SelectStopBits, Model.StopBitsList, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SelectStopBits, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Receive, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.TextAreaFor(model => model.Receive, 5, 80, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Receive, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Send, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.TextAreaFor(model => model.Send, 5, 80, new { htmlAttributes = new { @class = "form-control", @id = "send" } })
+                    @Html.ValidationMessageFor(model => model.Send, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-1">
+                    @*name="openAction"*@
+                    <input type="button" id="open" value=@Html.LocalizationFor("Open_Serial_Port") class="btn btn-default" />
+                    @*name="closeAction"*@
+                    <input type="button" id="close" value=@Html.LocalizationFor("Close_Serial_Port") class="btn btn-default" />
+                    @*name="sendAction"*@
+                    <input type="button" id="send" value=@Html.LocalizationFor("Send") class="btn btn-default" />
+                    <input type="button" value=@Html.LocalizationFor("Clear_Receive_Area") class="btn btn-default" onclick="clearReceivedText()" />
+                    <input type="button" value=@Html.LocalizationFor("Clear_Send_Area") class="btn btn-default" onclick="clearSentText()" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <div id="quicksend">
+                    @foreach (var item in @Model.QuickCommandList)
+                    {
+                        <div class="form-group col-md-6">
+                            <input type="button" value="@item.Text" title="@item.Value" class="btn btn-default" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
 }
 
-<h2>SerialPort</h2>
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <!--Reference the jQuery library. -->
+    <!--Reference the SignalR library. -->
+    @Scripts.Render("~/bundles/signalR")
+    <!--Reference the autogenerated SignalR hub script. -->
+    <script src="~/signalr/hubs"></script>
+    @Scripts.Render("~/bundles/custom")
+    <script>
+        updateState(@Model.IsOpened.ToString().ToLower());
+    </script>
+}
