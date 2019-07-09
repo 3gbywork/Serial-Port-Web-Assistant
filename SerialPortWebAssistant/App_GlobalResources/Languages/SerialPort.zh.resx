@@ -171,4 +171,10 @@
   <data name="en_US" xml:space="preserve">
     <value>英文</value>
   </data>
+  <data name="Cant_Open_Serial_Port" xml:space="preserve">
+    <value>无法打开串口</value>
+  </data>
+  <data name="Cant_Close_Serial_Port" xml:space="preserve">
+    <value>无法关闭串口</value>
+  </data>
 </root>

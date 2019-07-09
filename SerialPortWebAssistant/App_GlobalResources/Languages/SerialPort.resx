@@ -151,4 +151,10 @@
   <data name="en_US" xml:space="preserve">
     <value></value>
   </data>
+  <data name="Cant_Open_Serial_Port" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Cant_Close_Serial_Port" xml:space="preserve">
+    <value></value>
+  </data>
 </root>

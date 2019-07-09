@@ -63,6 +63,24 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        internal static string Cant_Close_Serial_Port {
+            get {
+                return ResourceManager.GetString("Cant_Close_Serial_Port", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Cant_Open_Serial_Port {
+            get {
+                return ResourceManager.GetString("Cant_Open_Serial_Port", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         internal static string Clear_Receive_Area {
             get {
                 return ResourceManager.GetString("Clear_Receive_Area", resourceCulture);
