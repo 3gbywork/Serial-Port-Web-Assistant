@@ -49,11 +49,11 @@ $(function () {
     };
     // Start the connection.
     $.connection.hub.start().done(function () {
-        //$('#Receive').append("connected.");
+        //$('#Receive').val("connected.");
         $('#open').click(function () {
             com.server.open(getModel()).done(function (opened) {
                 if (!opened) {
-                    window.alert("无法打开串口！");
+                    window.alert(errorMessage.cantOpenSerialPort);
                 }
                 updateState(opened);
             });
@@ -61,7 +61,7 @@ $(function () {
         $('#close').click(function () {
             com.server.close(getModel()).done(function (opened) {
                 if (opened) {
-                    window.alert("无法关闭串口！");
+                    window.alert(errorMessage.cantCloseSerialPort);
                 }
                 updateState(opened);
             });
