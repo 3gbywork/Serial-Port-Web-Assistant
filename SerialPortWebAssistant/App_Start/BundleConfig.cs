@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace SerialPortWebAssistant
 {
@@ -25,6 +24,14 @@ namespace SerialPortWebAssistant
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            //custom js
+            bundles.Add(new ScriptBundle("~/bundles/custom").Include(
+                        "~/Scripts/custom.js"));
+
+            //signalr
+            bundles.Add(new ScriptBundle("~/bundles/signalR").Include(
+                        "~/Scripts/jquery.signalR-{version}.js"));
         }
     }
 }
