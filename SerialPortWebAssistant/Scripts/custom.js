@@ -38,9 +38,9 @@ function updateState(opened) {
 
 $(function () {
     // Reference the auto-generated proxy for the hub.
-    var com = $.connection.receiveHub;
+    var serialPort = $.connection.serialPortHub;
     // Create a function that the hub can call back to display messages.
-    com.client.receivedMessage = function (name, message) {
+    serialPort.client.receivedMessage = function (name, message) {
         // Add the message to the page.
         if ($('#SelectSerialPort').val() === name) {
             var msg = $('#Receive').val();
@@ -51,7 +51,7 @@ $(function () {
     $.connection.hub.start().done(function () {
         //$('#Receive').val("connected.");
         $('#open').click(function () {
-            com.server.open(getModel()).done(function (opened) {
+            serialPort.server.open(getModel()).done(function (opened) {
                 if (!opened) {
                     window.alert(errorMessage.cantOpenSerialPort);
                 }
@@ -59,7 +59,7 @@ $(function () {
             });
         });
         $('#close').click(function () {
-            com.server.close(getModel()).done(function (opened) {
+            serialPort.server.close(getModel()).done(function (opened) {
                 if (opened) {
                     window.alert(errorMessage.cantCloseSerialPort);
                 }
@@ -67,7 +67,7 @@ $(function () {
             });
         });
         $('#send').click(function () {
-            com.server.sendMessage(getModel());
+            serialPort.server.sendMessage(getModel());
         });
         $('#quicksend').find('input').each(function () {
             $(this).click(function () {
