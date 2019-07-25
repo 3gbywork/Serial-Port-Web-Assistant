@@ -159,6 +159,8 @@
     <Compile Include="Extensions\HtmlHelperExtension.cs" />
     <Compile Include="Extensions\ResourceManagerExtension.cs" />
     <Compile Include="Extensions\SerialPortExtension.cs" />
+    <Compile Include="Filters\LocalizationAttribute.cs" />
+    <Compile Include="Filters\WithoutLocalizationAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
