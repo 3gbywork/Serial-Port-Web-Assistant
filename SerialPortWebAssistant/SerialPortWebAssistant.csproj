@@ -160,13 +160,14 @@
     <Compile Include="Extensions\ResourceManagerExtension.cs" />
     <Compile Include="Extensions\SerialPortExtension.cs" />
     <Compile Include="Filters\LocalizationAttribute.cs" />
-    <Compile Include="Filters\WithoutLocalizationAttribute.cs" />
+    <Compile Include="Attributes\WithoutLocalizationAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Managers\SerialPortManager.cs" />
     <Compile Include="Models\SerialPortModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Selectors\MultiButtonAttribute.cs" />
     <Compile Include="SignalRHubs\SerialPortHub.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
