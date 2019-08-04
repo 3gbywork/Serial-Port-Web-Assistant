@@ -71,13 +71,13 @@
             <div class="form-group">
                 <div class="col-md-offset-1">
                     @*name="openAction"*@
-                    <input type="button" id="open" value=@Html.LocalizationFor("Open_Serial_Port") class="btn btn-default" />
+                    <input type="button" id="open" value='@Html.LocalizationFor("Open_Serial_Port")' class="btn btn-default" />
                     @*name="closeAction"*@
-                    <input type="button" id="close" value=@Html.LocalizationFor("Close_Serial_Port") class="btn btn-default" />
+                    <input type="button" id="close" value='@Html.LocalizationFor("Close_Serial_Port")' class="btn btn-default" />
                     @*name="sendAction"*@
-                    <input type="button" id="send" value=@Html.LocalizationFor("Send") class="btn btn-default" />
-                    <input type="button" value=@Html.LocalizationFor("Clear_Receive_Area") class="btn btn-default" onclick="clearReceivedText()" />
-                    <input type="button" value=@Html.LocalizationFor("Clear_Send_Area") class="btn btn-default" onclick="clearSentText()" />
+                    <input type="button" id="send" value='@Html.LocalizationFor("Send")' class="btn btn-default" />
+                    <input type="button" value='@Html.LocalizationFor("Clear_Receive_Area")' class="btn btn-default" onclick="clearReceivedText()" />
+                    <input type="button" value='@Html.LocalizationFor("Clear_Send_Area")' class="btn btn-default" onclick="clearSentText()" />
                 </div>
             </div>
         </div>
