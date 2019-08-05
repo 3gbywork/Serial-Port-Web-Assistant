@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using SerialPortWebAssistant.Extensions;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -16,13 +18,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink(Html.LocalizationFor("Serial_Port_Web_Assistant"), "Index", "SerialPort", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                    <li>@Html.ActionLink(Html.LocalizationFor("zh_CN"), "ChangeLanguage", "SerialPort", new { lang = "zh-CN", url = Request.RawUrl }, null)</li>
+                    <li>@Html.ActionLink(Html.LocalizationFor("en_US"), "ChangeLanguage", "SerialPort", new { lang = "en-US", url = Request.RawUrl }, null)</li>
                 </ul>
             </div>
         </div>

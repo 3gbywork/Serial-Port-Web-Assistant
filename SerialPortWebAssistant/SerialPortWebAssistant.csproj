@@ -230,21 +230,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\Languages\SerialPort.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SerialPort.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\Languages\SerialPort.en.resx">
+    <EmbeddedResource Include="App_GlobalResources\Languages\SerialPort.en.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>SerialPort.en.designer.cs</LastGenOutput>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\Languages\SerialPort.zh.resx">
+    <EmbeddedResource Include="App_GlobalResources\Languages\SerialPort.zh.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>SerialPort.zh.designer.cs</LastGenOutput>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
