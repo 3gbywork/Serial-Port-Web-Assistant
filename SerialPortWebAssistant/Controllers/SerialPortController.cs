@@ -16,7 +16,7 @@ namespace SerialPortWebAssistant.Controllers
         //static private IHubContext/*<ChatHub>*/ context = GlobalHost.ConnectionManager.GetHubContext<ChatHub>();
 
         // GET: SerialPort
-        public ActionResult Index()
+        public ActionResult SerialPort()
         {
             ViewBag.Title = Resources.SerialPort.Serial_Port_Web_Assistant;
 
@@ -25,14 +25,14 @@ namespace SerialPortWebAssistant.Controllers
                 SelectBaudRate = 19200,
                 QuickCommandList = GetQuickCommandList(),
             };
-            return View("SerialPort", model);
+            return View(model);
         }
 
         private IEnumerable<SelectListItem> GetQuickCommandList()
         {
             var commands = new List<SelectListItem>();
 
-            const string filename = "~/App_Data/CEVT串口命令.txt";
+            const string filename = "~/App_Data/Commands.txt";
             var path = Server.MapPath(filename);
             if (System.IO.File.Exists(path))
             {
@@ -70,7 +70,7 @@ namespace SerialPortWebAssistant.Controllers
                 return Redirect(url);//redirect to new url
             }
 
-            return Index();
+            return SerialPort();
         }
 
         //[HttpPost]

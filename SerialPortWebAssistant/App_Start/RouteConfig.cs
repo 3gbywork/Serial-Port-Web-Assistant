@@ -13,13 +13,13 @@ namespace SerialPortWebAssistant
               name: "Localization", // 路由名称
               url: "{lang}/{controller}/{action}/{id}", // 带有参数的 URL\
               constraints: new { lang = "zh-CN|en-US" }, //限制可输入的语言项
-              defaults: new { controller = "SerialPort", action = "Index", id = UrlParameter.Optional }//参数默认值
+              defaults: new { controller = "SerialPort", action = "SerialPort", id = UrlParameter.Optional }//参数默认值
             );
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "SerialPort", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "SerialPort", action = "SerialPort", id = UrlParameter.Optional }
             );
         }
     }
